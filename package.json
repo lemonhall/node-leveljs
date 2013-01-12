@@ -1,0 +1,25 @@
+{
+    "name"            : "leveljs"
+  , "description"     : "LevelDB in pure JavaScript, a very immature work in progress"
+  , "version"         : "0.0.0-a1"
+  , "homepage"        : "https://github.com/rvagg/node-leveljs"
+  , "authors"         : [
+        "Rod Vagg <rod@vagg.org> (https://github.com/rvagg)"
+    ]
+  , "keywords"        : [ ]
+  , "main"            : "./lib/index.js"
+  , "repository"      : {
+        "type"            : "git"
+      , "url"             : "https://github.com/rvagg/node-leveljs.git"
+    }
+  , "dependencies"    : {
+    }
+  , "devDependencies" : {
+    }
+  , "scripts"         : {
+    }
+  , "bin"             : {
+        "leveljs"         : "./bin/leveljs.js"
+    }
+  , "license"         : "MIT"
+}
