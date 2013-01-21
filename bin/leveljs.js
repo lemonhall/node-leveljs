@@ -1,7 +1,8 @@
 #!/usr/bin/env node
 
 const fs        = require('fs')
-    , logReader = require('./log-reader')
+    , logReader = require('../lib/log-reader')
+    , tableReader = require('../lib/table-reader')
 
 if (/\d+\.log$/.test(process.argv[2])) {
   var fd = fs.openSync(process.argv[2], 'r')
@@ -21,6 +22,18 @@ if (/\d+\.log$/.test(process.argv[2])) {
       console.log('Done!')
       fs.closeSync(fd)
     })
+} else if (/\d+\.sst$/.test(process.argv[2])) {
+  var fd = fs.openSync(process.argv[2], 'r')
+  tableReader(fd)
+    .on('error', function (err) {
+      console.error('An error occurred reading the table file: ', err)
+      console.error(err.stack)
+      process.exit(-1)
+    })
+    .on('done', function () {
+      console.log('Done!')
+      fs.closeSync(fd)
+    })    
 } else {
   console.error('Usage: leveljs <LevelDB log file>')
   process.exit(-1)

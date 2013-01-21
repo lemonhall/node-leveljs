@@ -13,10 +13,13 @@
       , "url"             : "https://github.com/rvagg/node-leveljs.git"
     }
   , "dependencies"    : {
+        "node-int64"      : "~0.3.0"
     }
   , "devDependencies" : {
+        "buster"          : "*"
     }
   , "scripts"         : {
+        "test"            : "buster-test"
     }
   , "bin"             : {
         "leveljs"         : "./bin/leveljs.js"
