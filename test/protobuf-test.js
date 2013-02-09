@@ -14,8 +14,8 @@ buster.testCase('Protocol buffers', {
       while (pos < buf.length) {
         i  = Number(buf.toString('utf8', pos, pos += 16).trim())
         vi = protobuf.readVarInt64(buf, pos)
-        assert.equals(vi[1], i)
-        pos = vi[0]
+        assert.equals(vi[0], i)
+        pos += vi[1]
       }
     }
 
@@ -28,8 +28,8 @@ buster.testCase('Protocol buffers', {
       while (pos < buf.length) {
         i  = Number(buf.toString('utf8', pos, pos += 16).trim())
         vi = protobuf.readVarInt32(buf, pos)
-        assert.equals(vi[1], i)
-        pos = vi[0]
+        assert.equals(vi[0], i)
+        pos += vi[1]
       }
     }
 })
